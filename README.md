@@ -47,3 +47,5 @@ favorite-dirs is an [oh-my-zsh plugin](https://github.com/robbyrussell/oh-my-zsh
 
 ## Todo
 - [ ] Unify the shortcuts among keyboard layouts.
+    - [x] English
+    - [x] Czech

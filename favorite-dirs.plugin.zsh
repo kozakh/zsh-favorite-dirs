@@ -84,12 +84,13 @@ remove_favorite() {
 }
 
 # Function to redraw prompt
+# Credits: romkatv, https://github.com/romkatv/powerlevel10k/issues/2048#issuecomment-1271186812
 redraw-prompt() {
-  local f
-  for f in chpwd "${chpwd_functions[@]}" precmd "${precmd_functions[@]}"; do
-    [[ "${+functions[$f]}" == 0 ]] || "$f" &>/dev/null || true
-  done
-  p10k display -r
+    local f
+    for f in chpwd "${chpwd_functions[@]}" precmd "${precmd_functions[@]}"; do
+        [[ "${+functions[$f]}" == 0 ]] || "$f" &>/dev/null || true
+    done
+    p10k display -r
 }
 
 # Define aliases for easy access
@@ -103,17 +104,17 @@ for i in {1..9}; do
         goto-favorite-${i}-widget() {
             zle -I  # Invalidate current prompt
             goto_favorite $i
-	    if [[ $ZSH_THEME =~ "powerlevel10k" ]]; then
-		    redraw-prompt
-	    else
-            	    zle reset-prompt
-	    fi
+        if [[ $ZSH_THEME =~ "powerlevel10k" ]]; then
+            redraw-prompt
+        else
+                    zle reset-prompt
+        fi
         }
         zle -N goto-favorite-${i}-widget
     "
 done
 
-# Bind keys to widgets
+# Bind keys to widgets - English keyboard layout
 bindkey "^[1" goto-favorite-1-widget  # Alt+1
 bindkey "^[2" goto-favorite-2-widget  # Alt+2
 bindkey "^[3" goto-favorite-3-widget  # Alt+3
@@ -123,3 +124,14 @@ bindkey "^[6" goto-favorite-6-widget  # Alt+6
 bindkey "^[7" goto-favorite-7-widget  # Alt+7
 bindkey "^[8" goto-favorite-8-widget  # Alt+8
 bindkey "^[9" goto-favorite-9-widget  # Alt+9
+
+# Bind keys to widgets - Czech keyboard layout
+bindkey "^[+" goto-favorite-1-widget  # Alt+1 on Czech layout
+bindkey "^[ě" goto-favorite-2-widget  # Alt+2 on Czech layout
+bindkey "^[š" goto-favorite-3-widget  # Alt+3 on Czech layout
+bindkey "^[č" goto-favorite-4-widget  # Alt+4 on Czech layout
+bindkey "^[ř" goto-favorite-5-widget  # Alt+5 on Czech layout
+bindkey "^[ž" goto-favorite-6-widget  # Alt+6 on Czech layout
+bindkey "^[ý" goto-favorite-7-widget  # Alt+7 on Czech layout
+bindkey "^[á" goto-favorite-8-widget  # Alt+8 on Czech layout
+bindkey "^[í" goto-favorite-9-widget  # Alt+9 on Czech layout
