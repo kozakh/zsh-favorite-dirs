@@ -8,7 +8,7 @@ favorite-dirs is an [oh-my-zsh plugin](https://github.com/robbyrussell/oh-my-zsh
 1. Clone this repository into `$ZSH_CUSTOM/plugins` (by default `~/.oh-my-zsh/custom/plugins`)
 
     ```sh
-    git clone https://github.com/kozahk/zsh-favorite-dirs ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/favorite-dirs
+    git clone https://github.com/kozakh/zsh-favorite-dirs ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/favorite-dirs
     ```
 2. Add the plugin to the list of plugins for Oh My Zsh to load (inside `~/.zshrc`):
 
